@@ -1,10 +1,14 @@
 import React from 'react';
+import HeaderCarousel from './components/Header';
+import ProductItems from './components/Products';
+
 import './style.scss';
 
 function App() {
   return (
     <div>
-      <h1>hallo</h1>
+      <HeaderCarousel />
+      <ProductItems />
     </div>
   );
 }
