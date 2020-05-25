@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { nanoid } from 'nanoid';
 import React from 'react';
 import MenuBar from '../MenuBar';
+import {useMediaQuery} from "@material-ui/core";
 
 const useStyles = makeStyles({
   appBar: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
   },
   toolbar: {
     display: 'flex',
-    width: '70%',
+    width: props => props.minWidth1200 ? '70%' : '98%',
     justifyContent: 'space-around',
     minWidth: '700px',
   },
@@ -30,8 +31,10 @@ const menuOptions = [
 ];
 
 const MenuBarContainer = () => {
-  const classes = useStyles();
-  return <MenuBar menuOptions={menuOptions} classes={classes} />;
+  const minWidth1200 = useMediaQuery('(min-width:1200px)');
+  const minWidth900 = useMediaQuery('(max-width:900px)');
+  const classes = useStyles({ minWidth900 });
+  return <MenuBar menuOptions={menuOptions} classes={classes} isSmallDevice={minWidth900} />;
 };
 
 export default MenuBarContainer;
