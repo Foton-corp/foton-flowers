@@ -3,13 +3,12 @@
 import { nanoid } from 'nanoid';
 
 import {
-  ADD_PRODUCT, ACTIVE_PRODUCT, REMOVE_PRODUCT
+  ADD_PRODUCT, ACTIVE_PRODUCT, REMOVE_PRODUCT,
 } from '../actionType';
 
 // product image
-import rosi from '../../components/images/1.jpg';
-import lili from '../../components/images/2.jpg';
-import { removeProduct } from '../action';
+import rosi from '../../assets/images/1.jpg';
+import lili from '../../assets/images/2.jpg';
 
 const initialState = {
   items: [

@@ -50,7 +50,7 @@ const FlavorListPopup = ({opened, handleProfileMenuChange}) => {
         ? (
           <div className={classes.flavorItems}>
             <FlavorList flavors={flavors} />
-            <Link to="/all-flavors" onClick={handleProfileMenuChange}>See all</Link>
+            <Link to="/flavors" onClick={handleProfileMenuChange}>See all</Link>
           </div>
         )
         : (
