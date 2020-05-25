@@ -7,6 +7,8 @@ const useStyles = makeStyles({
   appBar: {
     display: 'flex',
     alignItems: 'flex-end',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
   toolbar: {
     display: 'flex',

@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import BasketContainer from "./Basket/BasketContainer/BasketContainer";
 
 // eslint-disable-next-line react/prop-types
 const MenuBar = ({ classes, menuOptions }) => (
@@ -19,6 +20,7 @@ const MenuBar = ({ classes, menuOptions }) => (
           ))
         }
     </Toolbar>
+    <BasketContainer />
   </AppBar>
 );
 
