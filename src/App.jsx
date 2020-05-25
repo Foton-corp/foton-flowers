@@ -1,11 +1,20 @@
 import React from 'react';
 import './style.scss';
+import { Switch, Route } from 'react-router-dom';
+import MenuBarContainer from './components/MenuBar/MenuBarContainer/MenuBarContainer';
+
 
 function App() {
   return (
-    <div>
-      <h1>hallo</h1>
-    </div>
+    <>
+      <MenuBarContainer />
+      <Switch>
+        <Route exact path="/" component={null} />
+        <Route path="/about-us" component={null} />
+        <Route path="/contact" component={null} />
+        <Route path="/pavilions" component={null} />
+      </Switch>
+    </>
   );
 }
 

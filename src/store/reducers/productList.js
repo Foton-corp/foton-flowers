@@ -5,8 +5,8 @@ import {
 } from '../actionType';
 
 // product image
-import rosi from '../../components/images/1.jpg';
-import lili from '../../components/images/2.jpg';
+import rosi from '../../assets/images/1.jpg';
+import lili from '../../assets/images/2.jpg';
 
 const initialState = {
   product: [
@@ -49,7 +49,4 @@ const initialState = {
   ],
 };
 
-export default (state = initialState, action) => {
-
-  return state;
-};
+export default (state = initialState, action) => state;
