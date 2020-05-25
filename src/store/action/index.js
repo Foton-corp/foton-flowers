@@ -1,7 +1,7 @@
-import { ACTIVE_PRODUCT, ADD_PRODUCT, REMOVE_PRODUCT } from '../actionType';
+import { PRODUCT_ACTIVE, ADD_PRODUCT, REMOVE_PRODUCT } from '../actionType';
 
 export const addProductActive = (id) => ({
-  type: ACTIVE_PRODUCT,
+  type: PRODUCT_ACTIVE,
   id,
 });
 

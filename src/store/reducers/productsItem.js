@@ -3,7 +3,7 @@
 import { nanoid } from 'nanoid';
 
 import {
-  ADD_PRODUCT, ACTIVE_PRODUCT, REMOVE_PRODUCT,
+  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT,
 } from '../actionType';
 
 // product image
@@ -78,7 +78,7 @@ export default (state = initialState, action) => {
         img: searchProduct.img,
       };
       return { items: state.items, bascet: [...state.bascet, newProduct] };
-    case ACTIVE_PRODUCT:
+    case PRODUCT_ACTIVE:
       const newProductList = state.items.map((product) => (
         {
           ...product,
