@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const MenuBarResponsive = ({ menu }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -15,9 +16,9 @@ const MenuBarResponsive = ({ menu }) => {
 
   return (
     <>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
-      </Button>
+      <IconButton edge="start" onClick={handleClick} color="inherit" aria-label="menu">
+        <MenuIcon />
+      </IconButton>
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

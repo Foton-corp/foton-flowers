@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { Close } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux';
 import StyledMenu from './StyledMenu/StyledMenu';
 import FlavorList from '../../Flavor/FlavorList/FlavorList';
+import { getBascetProduct } from '../../../store/selectors/getBascetProduct';
 
 const useStyles = makeStyles(() => ({
   flavors: {
     display: 'grid',
     gridTemplateRows: '1fr 4fr',
-    width: '420px',
+    maxWidth: '300px',
+    width: '300px',
   },
   header: {
     display: 'grid',
@@ -28,14 +31,14 @@ const useStyles = makeStyles(() => ({
     padding: '6px 0',
   },
   flavorItems: {
-    width: '80%',
+    width: '100%',
     margin: 'auto',
   },
 }));
 
-const FlavorListPopup = ({opened, handleProfileMenuChange}) => {
+const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
   const classes = useStyles();
-  const flavors = [];
+  const flavors = useSelector(getBascetProduct);
 
   return (
     <StyledMenu

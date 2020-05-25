@@ -3,13 +3,13 @@
 import { nanoid } from 'nanoid';
 
 import {
-  ADD_PRODUCT, ACTIVE_PRODUCT, REMOVE_PRODUCT
+  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT,
 } from '../actionType';
 
 // product image
-import rosi from '../../components/images/1.jpg';
-import lili from '../../components/images/2.jpg';
-import { removeProduct } from '../action';
+import rosi from '../../assets/images/1.jpg';
+import lili from '../../assets/images/2.jpg';
+import { removeBascetProduct } from '../action';
 
 const initialState = {
   items: [
@@ -79,7 +79,7 @@ export default (state = initialState, action) => {
         img: searchProduct.img,
       };
       return { items: state.items, bascet: [...state.bascet, newProduct] };
-    case ACTIVE_PRODUCT:
+    case PRODUCT_ACTIVE:
       const newProductList = state.items.map((product) => (
         {
           ...product,

@@ -12,7 +12,6 @@ const useStyles = makeStyles({
 const BasketContainer = () => {
   const [opened, setOpened] = useState(false);
   const classes = useStyles();
-
   const handleProfileMenuOpen = () => {
     setOpened(!opened);
   };

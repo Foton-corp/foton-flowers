@@ -2,7 +2,7 @@ import {
   PRODUCT_ACTIVE, ADD_PRODUCT, REMOVE_PRODUCT,
 } from '../actionType';
 
-export const productActive = (id) => ({
+export const addProductActive = (id) => ({
   type: PRODUCT_ACTIVE,
   id,
 });
@@ -12,7 +12,7 @@ export const addProduct = (id) => ({
   id,
 });
 
-export const removeBascetProduct = (id) => ({
+export const removeProduct = (id) => ({
   type: REMOVE_PRODUCT,
   id,
 });
