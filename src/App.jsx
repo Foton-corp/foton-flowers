@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import MenuBarContainer from './components/MenuBar/MenuBarContainer/MenuBarContainer';
 import HeaderCarousel from './components/Header';
 import ProductItems from './components/Products';
-import Pavilions from "./components/Pavilions/Pavilions";
+import Pavilions from './components/Pavilions/Pavilions';
 
 
 function App() {
