@@ -13,11 +13,13 @@ import './style.scss';
 const ProductItems = () => {
   const selector = useSelector(getProductItems);
   const disptach = useDispatch();
+
   const handleAdd = (e) => {
     const { id } = e.target.dataset;
     disptach(addProduct(id));
     disptach(addProductActive(id));
   };
+
   const handleDelet = (e) => {
     const { id } = e.target.dataset;
     disptach(removeProduct(id));
@@ -54,11 +56,11 @@ const ProductItems = () => {
                   <div className="productCard_btn">
                     <button
                       type="button"
+                      disabled={product.active}
                       onClick={handleAdd}
                       data-id={product.id}
-                      disabled={product.active}
                     >
-                      Պահպանել
+                      {product.active ? 'պահպանված է' : 'Պահպանել'}
                     </button>
                   </div>
                   <div className="productCard_removeBtn">
@@ -68,7 +70,7 @@ const ProductItems = () => {
                       onClick={handleDelet}
                       data-id={product.id}
                     >
-                      ջնջել
+                      չեղարկել
                     </button>
                   </div>
                 </div>
