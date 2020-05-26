@@ -12,14 +12,14 @@ const useStyles = makeStyles({
 const BasketContainer = () => {
   const [opened, setOpened] = useState(false);
   const classes = useStyles();
-  const handleProfileMenuOpen = () => {
+  const handleProfileMenuChange = () => {
     setOpened(!opened);
   };
   return (
     <Basket
       opened={opened}
       classes={classes}
-      handleProfileMenuOpen={handleProfileMenuOpen}
+      handleProfileMenuChange={handleProfileMenuChange}
     />
   );
 };

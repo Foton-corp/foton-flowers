@@ -1,3 +1,4 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const PRODUCT_ACTIVE = 'ACTIVE_PRODUCT';
+export const FLOVERS_PAGE = 'FLOVERS_PAGE';

@@ -7,13 +7,13 @@ import MenuBar from '../MenuBar';
 const useStyles = makeStyles({
   appBar: {
     display: 'flex',
-    alignItems: (props) => (props.maxWidth900 ? 'flex-end' : 'center'),
+    alignItems: (props) => (props.minWidth900 ? 'flex-end' : 'center'),
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   toolbar: {
     display: 'flex',
-    width: (props) => (props.maxWidth1200 ? '70%' : '98%'),
+    width: (props) => (props.minWidth1200 ? '70%' : '98%'),
     justifyContent: 'space-around',
     minWidth: '700px',
   },
@@ -31,10 +31,10 @@ const menuOptions = [
 ];
 
 const MenuBarContainer = () => {
-  const maxWidth1200 = useMediaQuery('(min-width:1200px)');
-  const maxWidth900 = useMediaQuery('(min-width:900px)');
-  const classes = useStyles({ maxWidth1200, maxWidth900 });
-  return <MenuBar menuOptions={menuOptions} classes={classes} isSmallDevice={!maxWidth900} />;
+  const minWidth1200 = useMediaQuery('(min-width:1200px)');
+  const minWidth900 = useMediaQuery('(min-width:900px)');
+  const classes = useStyles({ minWidth1200, minWidth900 });
+  return <MenuBar menuOptions={menuOptions} classes={classes} isSmallDevice={!minWidth900} />;
 };
 
 export default MenuBarContainer;
