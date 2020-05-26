@@ -16,7 +16,7 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 const Basket = ({ opened, handleProfileMenuChange }) => (
-  <MenuItem onClick={handleProfileMenuOpen} style={{ left: '0' }}>
+  <MenuItem onClick={handleProfileMenuChange} style={{ left: '0' }}>
     <IconButton aria-label="cart">
       <StyledBadge color="secondary">
         <ShoppingCartIcon />
