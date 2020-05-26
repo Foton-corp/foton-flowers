@@ -20,7 +20,6 @@ const useStyles = makeStyles({
 
 const FlavorItem = ({flavor}) => {
   const classes = useStyles();
-  console.log('Flavor is: ', flavor);
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.cardActionArea}>

@@ -3,7 +3,7 @@
 import { nanoid } from 'nanoid';
 
 import {
-  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT,
+  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT, FLOVERS_PAGE,
 } from '../actionType';
 
 // product image
@@ -17,53 +17,94 @@ const initialState = {
       sale: 1000,
       id: nanoid(),
       img: rosi,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 3000,
       id: nanoid(),
       img: lili,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 3000,
       id: nanoid(),
       img: rosi,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 9000,
       id: nanoid(),
       img: lili,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 6000,
       id: nanoid(),
       img: rosi,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 2000,
       id: nanoid(),
       img: lili,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 5000,
       id: nanoid(),
       img: lili,
+      about: `Orchids are widely considered to be the most
+      highly evolved of all flowering plants. ... Technically,
+       an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+       All orchids have both the male and female
+      reproductive structures fused into a single structure commonly called a "column".`,
     },
     {
       name: 'Պիոն',
       sale: 8000,
       id: nanoid(),
       img: lili,
+      about: `Orchids are widely considered to be the most
+       highly evolved of all flowering plants. ... Technically,
+        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
+        All orchids have both the male and female
+       reproductive structures fused into a single structure commonly called a "column".`,
     },
   ],
   bascet: [
 
   ],
+  floverPage: [],
 };
 
 export default (state = initialState, action) => {
@@ -95,6 +136,17 @@ export default (state = initialState, action) => {
         }
       ));
       return { items: removeProductActive, bascet: removeproduct };
+    case FLOVERS_PAGE:
+      console.log(state, action)
+      const searchFlavor = state.items.find((prod) => action.id === prod.id);
+      const floverAbout = {
+        name: searchFlavor.name,
+        sale: searchFlavor.sale,
+        id: searchFlavor.id,
+        img: searchFlavor.img,
+        about: searchFlavor.about,
+      };
+      return { items: state.items, bascet: state.bascet, floverPage: [floverAbout] };
   }
   return state;
 };

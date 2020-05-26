@@ -1,9 +1,6 @@
 import React from 'react';
 import FlavorItem from './FlavorItem/FlavorItem';
 
-const FlavorList = ({ flavors }) => {
-  console.log('Flavors are: ', flavors);
-  return flavors.map((val) => <FlavorItem flavor={val} />);
-};
+const FlavorList = ({ flavors }) => flavors.map((val) => <FlavorItem key={val.id} flavor={val} />);
 
 export default FlavorList;
