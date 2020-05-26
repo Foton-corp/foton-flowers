@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { Close } from '@material-ui/icons';
@@ -53,7 +53,7 @@ const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
         ? (
           <div className={classes.flavorItems}>
             <FlavorList flavors={flavors} />
-            <Link to="/all-flavors" onClick={handleProfileMenuChange}>See all</Link>
+            <Link to="/flavors" onClick={handleProfileMenuChange}>See all</Link>
           </div>
         )
         : (
