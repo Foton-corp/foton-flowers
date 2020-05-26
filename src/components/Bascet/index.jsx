@@ -22,7 +22,7 @@ const MainBascet = () => {
             <li key={prod.id}>
               <div className="bascetCard">
                 <div className="bascetCard_image">
-                  <img src={prod.img} alt="image" />
+                  <img src={prod.img} alt="icon" />
                 </div>
                 <div className="bascetCard_name">
                   {prod.name}

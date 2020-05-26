@@ -17,7 +17,7 @@ const FloversAbout = (props) => {
       const { id } = props.match.params;
       dispatch(goToFloversPage(id));
     }
-  }, [selector]);
+  }, [selector, dispatch, props.match.params]);
   return (
     <>
       {selector.map((product) => (
