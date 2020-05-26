@@ -1,10 +1,11 @@
 .main_bascet {
   padding: 20px 20px;
+  min-height: 600px;
   &_title {
     text-align: center;
   }
 
-  &_items{
+  &_items{ 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -25,4 +26,41 @@
     width: 100%;
     height: 100%;
   }
+
+  &_quantityBox {
+    width: 25%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-around;
+
+    &_plus {
+      width: 20px;
+      height: 20px;
+      background-color: green;
+      border: 0;
+      outline: 0;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    &_minus {
+      width: 20px;
+      height: 20px;
+      background-color: violet;
+      border: 0;
+      outline: 0;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    button:focus{
+      outline: 0;
+    }
+
+  }
+
+}
+
+.bascet_range {
+  color: tomato;
 }

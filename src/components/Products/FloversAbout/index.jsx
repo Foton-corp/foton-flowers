@@ -1,14 +1,15 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getInfoForFlavor } from '../../../store/selectors/getInfoForFlavor';
-import { goToFloversPage } from '../../../store/action';
+import { goToFloversPage, addProduct } from '../../../store/action';
 
 import './style.scss';
 
 
 const FloversAbout = (props) => {
+  const [activeFlov, setActivePrdo] = useState(false);
   const dispatch = useDispatch();
   const selector = useSelector(getInfoForFlavor);
   // eslint-disable-next-line consistent-return
@@ -17,7 +18,12 @@ const FloversAbout = (props) => {
       const { id } = props.match.params;
       dispatch(goToFloversPage(id));
     }
-  }, [selector]);
+  }, [dispatch]);
+  const handleBuy = (e) => {
+    const { id } = e.target.dataset;
+    dispatch(addProduct(id));
+    setActivePrdo(true);
+  };
   return (
     <>
       {selector.map((product) => (
@@ -34,7 +40,15 @@ const FloversAbout = (props) => {
                 $
               </div>
               <div>
-                <button type="button" className="flowersAbout_btn">BUY</button>
+                <button
+                  type="button"
+                  className="flowersAbout_btn"
+                  disabled={activeFlov}
+                  onClick={handleBuy}
+                  data-id={product.id}
+                >
+                  {activeFlov ? 'ԾԱՂԻԿԸ ԶԱՄԲՅՈՒՂՈՒՄ Է' : 'ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ'}
+                </button>
               </div>
             </div>
           </div>

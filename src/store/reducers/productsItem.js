@@ -1,5 +1,5 @@
 import {
-  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT, FLOVERS_PAGE,
+  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT, FLOVERS_PAGE, QUANTITY_PRODUCT,
 } from '../actionType';
 
 // product image
@@ -25,6 +25,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -36,6 +37,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -47,6 +49,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -58,6 +61,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -69,6 +73,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -80,6 +85,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -91,6 +97,7 @@ const initialState = {
        an orchid is a flowering plant that exhibits a unique reproductive strategy. 
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
     {
       name: 'Պիոն',
@@ -102,6 +109,7 @@ const initialState = {
         an orchid is a flowering plant that exhibits a unique reproductive strategy. 
         All orchids have both the male and female
        reproductive structures fused into a single structure commonly called a "column".`,
+      quantity: 1,
     },
   ],
   bascet: [],
@@ -134,6 +142,14 @@ export default (state = initialState, action) => {
     case FLOVERS_PAGE:
       const searchFlavor = state.items.find((prod) => action.payload.id === prod.id);
       return { ...state, floverPage: [searchFlavor] };
+    case QUANTITY_PRODUCT:
+      const quantityProduct = state.bascet.map((items) => (
+        {
+          ...items,
+          quantity: action.payload.id === items.id ? action.payload.quantity : items.quantity,
+        }
+      ));
+      return { ...state, bascet: quantityProduct };
     default:
       return state;
   }
