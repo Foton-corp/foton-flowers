@@ -12,18 +12,22 @@ const FloversAbout = (props) => {
   const dispatch = useDispatch();
   const selector = useSelector(getInfoForFlavor);
   // eslint-disable-next-line consistent-return
-  useEffect(() => {
-      const { id } = props.match.params;
-      dispatch(goToFloversPage(id));
-  }, [selector, dispatch, props.match.params]);
   const handleBuy = (id) => {
     dispatch(addProduct(id));
     dispatch(addProductActive(id));
   };
+
+  useEffect(() => {
+    console.log('Selector is: ', selector);
+    if (!selector.length) {
+      const { id } = props.match.params;
+      dispatch(goToFloversPage(id));
+    }
+  }, [selector, dispatch]);
   return (
     <>
       {selector.map((product) => (
-        <div className="flowersAbout">
+        <div className="flowersAbout" key={product.id}>
           <div className="flowersAbout_image">
             <img src={product.img} alt="flover" />
           </div>
@@ -39,10 +43,10 @@ const FloversAbout = (props) => {
                 <button
                   type="button"
                   className="flowersAbout_btn"
-                  disabled={activeFlov}
-                  onClick={() => handleBuy((product.id))}
+                  disabled={product.active}
+                  onClick={() => handleBuy(product.id)}
                 >
-                  {activeFlov ? 'ԾԱՂԻԿԸ ԶԱՄԲՅՈՒՂՈՒՄ Է' : 'ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ'}
+                  {product.active ? 'ԾԱՂԻԿԸ ԶԱՄԲՅՈՒՂՈՒՄ Է' : 'ԱՎԵԼԱՑՆԵԼ ԶԱՄԲՅՈՒՂ'}
                 </button>
               </div>
             </div>

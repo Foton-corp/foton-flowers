@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getProductItems } from '../../store/selectors/getProductItems';
 import {
-  addProduct, addProductActive, removeProduct,
+  addProduct, addProductActive, goToFloversPage, removeProduct,
 } from '../../store/action';
 import HeaderCarousel from '../Header';
 
@@ -13,14 +13,12 @@ import './style.scss';
 const ProductItems = () => {
   const selector = useSelector(getProductItems);
   const dispatch = useDispatch();
-  const handleAdd = (e) => {
-    const { id } = e.target.dataset;
+  const handleAdd = (id) => {
     dispatch(addProduct(id));
     dispatch(addProductActive(id));
   };
 
-  const handleDelet = (e) => {
-    const { id } = e.target.dataset;
+  const handleDelete = (id) => {
     dispatch(removeProduct(id));
   };
 
@@ -39,6 +37,7 @@ const ProductItems = () => {
               <li key={product.id}>
                 <div className="productCard">
                   <Link
+                    onClick={() => dispatch(goToFloversPage(product.id))}
                     to={`flavors/${product.id}`}
                     className="productCard_image"
                   >
@@ -56,8 +55,7 @@ const ProductItems = () => {
                     <button
                       type="button"
                       disabled={product.active}
-                      onClick={handleAdd}
-                      data-id={product.id}
+                      onClick={() => handleAdd(product.id)}
                     >
                       {product.active ? 'պահպանված է' : 'Պահպանել'}
                     </button>
@@ -66,8 +64,7 @@ const ProductItems = () => {
                     <button
                       type="button"
                       style={{ display: product.active ? 'block' : 'none' }}
-                      onClick={handleDelet}
-                      data-id={product.id}
+                      onClick={() => handleDelete(product.id)}
                     >
                       չեղարկել
                     </button>

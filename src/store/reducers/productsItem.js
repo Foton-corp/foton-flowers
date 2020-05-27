@@ -71,7 +71,6 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
-      active: false,
     },
     {
       name: 'Պիոն',
@@ -127,9 +126,7 @@ const initialState = {
     },
   ],
   bascet: [],
-  floverPage: [{
-    id: 1,
-  }],
+  floverPage: [],
 };
 
 export default (state = initialState, action) => {

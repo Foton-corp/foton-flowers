@@ -67,8 +67,6 @@ const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
             <div className={classes.flavorList}>
               <Typography variant="subtitle2">
                 No any flavors yet!
-                {' '}
-                <Link onClick={handleProfileMenuChange} to="/flavors">See All</Link>
               </Typography>
             </div>
           </section>

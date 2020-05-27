@@ -9,20 +9,15 @@ const MainBascet = () => {
   const selector = useSelector(getBascetProduct);
   const totalAmount = selector.reduce((num, item) => num + +item.sale * item.quantity, 0);
   const dispatch = useDispatch();
-  const handleDelete = (e) => {
-    const { id } = e.target.dataset;
+  const handleDelete = (id) => {
     dispatch(removeProduct(id));
   };
 
-  const handlePlus = (e) => {
-    const { id } = e.target.dataset;
-    const { quantity } = e.target.dataset;
+  const handlePlus = (id, quantity) => {
     dispatch(increaseCountBouqet(id, quantity));
   };
 
-  const handleMinus = (e) => {
-    const { id } = e.target.dataset;
-    const { quantity } = e.target.dataset;
+  const handleMinus = (id, quantity) => {
     dispatch(decreaseBouqetAccount(id, quantity));
   };
 
@@ -36,7 +31,7 @@ const MainBascet = () => {
             <li key={prod.id}>
               <div className="bascetCard">
                 <div className="bascetCard_image">
-                  <img src={prod.img} alt="icon" />
+                  <img src={prod.img} alt="flover" />
                 </div>
                 <div className="bascetCard_name">
                   {prod.name}
@@ -52,9 +47,7 @@ const MainBascet = () => {
                 <div className="bascetCard_quantityBox">
                   <button
                     type="button"
-                    onClick={handlePlus}
-                    data-id={prod.id}
-                    data-quantity={prod.quantity}
+                    onClick={() => handlePlus(prod.id, prod.quantity)}
                     className="bascetCard_quantityBox_plus"
                   >
                     +
@@ -62,9 +55,7 @@ const MainBascet = () => {
                   <span>{prod.quantity}</span>
                   <button
                     type="button"
-                    onClick={handleMinus}
-                    data-id={prod.id}
-                    data-quantity={prod.quantity}
+                    onClick={() => handleMinus(prod.id, prod.quantity)}
                     className="bascetCard_quantityBox_minus"
                   >
                     -
@@ -73,8 +64,7 @@ const MainBascet = () => {
                 <div className="productCard_removeBtn">
                   <button
                     type="button"
-                    onClick={handleDelete}
-                    data-id={prod.id}
+                    onClick={() => handleDelete(prod.id)}
                   >
                     ջնջել
                   </button>

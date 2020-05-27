@@ -4,7 +4,7 @@ import GoogleMapUI from './GoogleMapUI/GoogleMapUI';
 
 const Pavilions = () => (
   <>
-    <Typography component="h2" variant="h2" align='center' style={{margin: 50}}>
+    <Typography component="h2" variant="h2" align="center" style={{ margin: 50 }}>
       Տաղավարներ
     </Typography>
     <GoogleMapUI />

@@ -6,7 +6,7 @@ import Pavilions from './components/Pavilions/Pavilions';
 import Products from './components/Products';
 import MainBascet from './components/Bascet';
 import Footer from './components/Footer';
-import FloversAbout from './components/Products/FloversAbout';
+import FloversAbout from './components/Products/AboutFlavors';
 
 function App() {
   return (

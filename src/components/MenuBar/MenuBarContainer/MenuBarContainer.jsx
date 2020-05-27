@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { nanoid } from 'nanoid';
 import React from 'react';
 import { useMediaQuery } from '@material-ui/core';
 import MenuBar from '../MenuBar';
@@ -23,11 +22,11 @@ const useStyles = makeStyles({
 });
 
 const menuOptions = [
-  { title: 'Գլխավոր', link: '/', id: nanoid() },
-  { title: 'Մեր մասին', link: '/about-us', id: nanoid() },
-  { title: 'Կոնտակտներ', link: '/contact', id: nanoid() },
-  { title: 'Տաղավարներ', link: '/pavilions', id: nanoid() },
-  { title: 'Զանգահարեք մեզ` 093579264', link: '/', id: nanoid() },
+  { title: 'Գլխավոր', link: '/', id: 1, },
+  { title: 'Մեր մասին', link: '/about-us', id: 2, },
+  { title: 'Կոնտակտներ', link: '/contact', id: 3, },
+  { title: 'Տաղավարներ', link: '/pavilions', id: 4, },
+  { title: 'Զանգահարեք մեզ` 093579264', link: '/', id: 5, },
 ];
 
 const MenuBarContainer = () => {
