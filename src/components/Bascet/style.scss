@@ -28,29 +28,32 @@
   }
 
   &_quantityBox {
-    width: 25%;
+    width: 50%;
     margin: 5px auto;
     display: flex;
     justify-content: space-around;
 
     &_plus {
-      width: 20px;
-      height: 20px;
-      background-color: green;
-      border: 0;
-      outline: 0;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
+      background: green;
+      outline: none;
+      border: navajowhite;
       font-weight: bold;
+      color: red;
     }
 
     &_minus {
-      width: 20px;
-      height: 20px;
-      background-color: violet;
-      border: 0;
-      outline: 0;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
+      background: red;
+      outline: none;
+      font-size: 18px;
+      border: navajowhite;
       font-weight: bold;
+      color: black;
     }
 
     button:focus{

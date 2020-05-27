@@ -19,7 +19,6 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 const Basket = ({ opened, handleProfileMenuChange }) => {
   const selector = useSelector(getBascetProduct);
-  console.log(selector.length);
   return (
     <MenuItem onClick={handleProfileMenuChange} style={{ left: '0' }}>
       <IconButton aria-label="cart">

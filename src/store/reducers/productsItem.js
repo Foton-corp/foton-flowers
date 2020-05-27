@@ -1,5 +1,11 @@
 import {
-  ADD_PRODUCT, PRODUCT_ACTIVE, REMOVE_PRODUCT, FLOVERS_PAGE, QUANTITY_PRODUCT,
+  ADD_PRODUCT,
+  PRODUCT_ACTIVE,
+  REMOVE_PRODUCT,
+  FLOVERS_PAGE,
+  INCREASE_COUNT_BOUQUET,
+  DECREASE_BOUQET_ACCOUNT,
+  PRODUCT_ACTIVE_ABOUT_PAGE,
 } from '../actionType';
 
 // product image
@@ -26,6 +32,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -38,6 +45,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -50,6 +58,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -62,6 +71,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -74,6 +84,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -86,6 +97,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -98,6 +110,7 @@ const initialState = {
        All orchids have both the male and female
       reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
     {
       name: 'Պիոն',
@@ -110,10 +123,13 @@ const initialState = {
         All orchids have both the male and female
        reproductive structures fused into a single structure commonly called a "column".`,
       quantity: 1,
+      active: false,
     },
   ],
   bascet: [],
-  floverPage: [],
+  floverPage: [{
+    id: 1,
+  }],
 };
 
 export default (state = initialState, action) => {
@@ -129,7 +145,9 @@ export default (state = initialState, action) => {
           active: product.id === action.payload.id ? !product.active : product.active,
         }
       ));
-      return { ...state, items: newProductList };
+      const test = state.floverPage[0];
+      test.active = test.id === action.payload.id;
+      return { ...state, items: newProductList, floverPage: [test] };
     case REMOVE_PRODUCT:
       const removeProduct = state.bascet.filter((item) => item.id !== action.payload.id);
       const removeProductActive = state.items.map((product) => (
@@ -142,14 +160,25 @@ export default (state = initialState, action) => {
     case FLOVERS_PAGE:
       const searchFlavor = state.items.find((prod) => action.payload.id === prod.id);
       return { ...state, floverPage: [searchFlavor] };
-    case QUANTITY_PRODUCT:
-      const quantityProduct = state.bascet.map((items) => (
+    case INCREASE_COUNT_BOUQUET:
+      const increaseCountBouqet = state.bascet.map((prod) => (
         {
-          ...items,
-          quantity: action.payload.id === items.id ? action.payload.quantity : items.quantity,
+          ...prod,
+          quantity: action.payload.id === prod.id ? action.payload.quantity + 1 : prod.quantity,
         }
       ));
-      return { ...state, bascet: quantityProduct };
+      return { ...state, bascet: [...increaseCountBouqet] };
+    case DECREASE_BOUQET_ACCOUNT:
+      const decreaseBouqetAccount = state.bascet.map((prod) => {
+        if (action.payload.quantity > 1) {
+          return {
+            ...prod,
+            quantity: action.payload.id === prod.id ? action.payload.quantity - 1 : prod.quantity,
+          };
+        }
+        return { ...prod };
+      });
+      return { ...state, bascet: [...decreaseBouqetAccount] };
     default:
       return state;
   }
