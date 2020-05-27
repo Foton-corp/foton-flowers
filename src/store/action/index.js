@@ -1,11 +1,17 @@
 import {
-  PRODUCT_ACTIVE, ADD_PRODUCT, REMOVE_PRODUCT, FLOVERS_PAGE, QUANTITY_PRODUCT, TOTAL_PRODUCTS,
+  PRODUCT_ACTIVE,
+  ADD_PRODUCT,
+  REMOVE_PRODUCT,
+  FLOVERS_PAGE,
+  INCREASE_COUNT_BOUQUET,
+  DECREASE_BOUQET_ACCOUNT,
 } from '../actionType';
 
 export const addProductActive = (id) => ({
   type: PRODUCT_ACTIVE,
   payload: { id: +id },
 });
+
 
 export const addProduct = (id) => ({
   type: ADD_PRODUCT,
@@ -22,7 +28,12 @@ export const goToFloversPage = (id) => ({
   payload: { id: +id },
 });
 
-export const changeQuantity = (id, quantity) => ({
-  type: QUANTITY_PRODUCT,
-  payload: { id: +id, quantity },
+export const increaseCountBouqet = (id, quantity) => ({
+  type: INCREASE_COUNT_BOUQUET,
+  payload: { id: +id, quantity: +quantity },
+});
+
+export const decreaseBouqetAccount = (id, quantity) => ({
+  type: DECREASE_BOUQET_ACCOUNT,
+  payload: { id: +id, quantity: +quantity },
 });

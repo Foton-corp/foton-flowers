@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBascetProduct } from '../../store/selectors/getBascetProduct';
-import { removeProduct, changeQuantity } from '../../store/action';
+import { removeProduct, increaseCountBouqet, decreaseBouqetAccount } from '../../store/action';
 
 import './style.scss';
 
 const MainBascet = () => {
-  const [quantity, setQuantity] = useState(1);
   const selector = useSelector(getBascetProduct);
   const totalAmount = selector.reduce((num, item) => num + +item.sale * item.quantity, 0);
   const dispatch = useDispatch();
@@ -15,11 +14,16 @@ const MainBascet = () => {
     dispatch(removeProduct(id));
   };
 
-  const quantityChange = (e) => {
-    const { value } = e.target;
+  const handlePlus = (e) => {
     const { id } = e.target.dataset;
-    setQuantity(value);
-    dispatch(changeQuantity(id, quantity));
+    const { quantity } = e.target.dataset;
+    dispatch(increaseCountBouqet(id, quantity));
+  };
+
+  const handleMinus = (e) => {
+    const { id } = e.target.dataset;
+    const { quantity } = e.target.dataset;
+    dispatch(decreaseBouqetAccount(id, quantity));
   };
 
   return (
@@ -46,18 +50,25 @@ const MainBascet = () => {
                   Քանակի ավելացում
                 </div>
                 <div className="bascetCard_quantityBox">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    onChange={quantityChange}
+                  <button
+                    type="button"
+                    onClick={handlePlus}
                     data-id={prod.id}
-                    data-sale={prod.sale}
-                    data-val={prod.quantity}
-                    value={prod.quantity}
-                    className="bascet_range"
-                  />
+                    data-quantity={prod.quantity}
+                    className="bascetCard_quantityBox_plus"
+                  >
+                    +
+                  </button>
                   <span>{prod.quantity}</span>
+                  <button
+                    type="button"
+                    onClick={handleMinus}
+                    data-id={prod.id}
+                    data-quantity={prod.quantity}
+                    className="bascetCard_quantityBox_minus"
+                  >
+                    -
+                  </button>
                 </div>
                 <div className="productCard_removeBtn">
                   <button

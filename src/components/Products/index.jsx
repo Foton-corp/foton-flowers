@@ -12,17 +12,16 @@ import './style.scss';
 
 const ProductItems = () => {
   const selector = useSelector(getProductItems);
-  const disptach = useDispatch();
-
+  const dispatch = useDispatch();
   const handleAdd = (e) => {
     const { id } = e.target.dataset;
-    disptach(addProduct(id));
-    disptach(addProductActive(id));
+    dispatch(addProduct(id));
+    dispatch(addProductActive(id));
   };
 
   const handleDelet = (e) => {
     const { id } = e.target.dataset;
-    disptach(removeProduct(id));
+    dispatch(removeProduct(id));
   };
 
 
