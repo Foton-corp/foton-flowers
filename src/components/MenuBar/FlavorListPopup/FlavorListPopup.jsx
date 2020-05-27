@@ -44,7 +44,7 @@ const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
     <StyledMenu
       type="flavors"
       id="customized-menu"
-      anchorEl={opened}
+      // anchorEl={opened}
       keepMounted
       open={Boolean(opened)}
       onClose={handleProfileMenuChange}

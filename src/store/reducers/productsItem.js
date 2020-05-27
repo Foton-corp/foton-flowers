@@ -126,7 +126,6 @@ const initialState = {
     },
   ],
   bascet: [],
-  floverPage: [],
 };
 
 export default (state = initialState, action) => {
@@ -142,9 +141,7 @@ export default (state = initialState, action) => {
           active: product.id === action.payload.id ? !product.active : product.active,
         }
       ));
-      const test = state.floverPage[0];
-      test.active = test.id === action.payload.id;
-      return { ...state, items: newProductList, floverPage: [test] };
+      return { ...state, items: newProductList };
     case REMOVE_PRODUCT:
       const removeProduct = state.bascet.filter((item) => item.id !== action.payload.id);
       const removeProductActive = state.items.map((product) => (
@@ -154,9 +151,9 @@ export default (state = initialState, action) => {
         }
       ));
       return { ...state, items: removeProductActive, bascet: removeProduct };
-    case FLOVERS_PAGE:
-      const searchFlavor = state.items.find((prod) => action.payload.id === prod.id);
-      return { ...state, floverPage: [searchFlavor] };
+    // case FLOVERS_PAGE:
+    //   const searchFlavor = state.items.find((prod) => action.payload.id === prod.id);
+    //   return { ...state };
     case INCREASE_COUNT_BOUQUET:
       const increaseCountBouqet = state.bascet.map((prod) => (
         {

@@ -1,16 +1,18 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getInfoForFlavor } from '../../../store/selectors/getInfoForFlavor';
-import { goToFloversPage, addProduct, addProductActive } from '../../../store/action';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {getInfoForFlavor} from '../../../store/selectors/getInfoForFlavor';
+import {goToFloversPage, addProduct, addProductActive} from '../../../store/action';
 
 import './style.scss';
+import {getInfoForFlavorById} from "../../../store/selectors/getInfoForFlavorById";
 
 
 const FloversAbout = (props) => {
   const dispatch = useDispatch();
-  const selector = useSelector(getInfoForFlavor);
+  const [id, setId] = useState(props.match.params.id);
+  const product = useSelector((state) => getInfoForFlavorById(state, id));
   // eslint-disable-next-line consistent-return
   const handleBuy = (id) => {
     dispatch(addProduct(id));
@@ -18,18 +20,17 @@ const FloversAbout = (props) => {
   };
 
   useEffect(() => {
-    console.log('Selector is: ', selector);
-    if (!selector.length) {
-      const { id } = props.match.params;
-      dispatch(goToFloversPage(id));
-    }
-  }, [selector, dispatch]);
+    setId(props.match.params.id);
+  }, [props.match.params.id]);
+
+  if (!product) {
+    return null;
+  }
+
   return (
-    <>
-      {selector.map((product) => (
         <div className="flowersAbout" key={product.id}>
           <div className="flowersAbout_image">
-            <img src={product.img} alt="flover" />
+            <img src={product.img} alt="flover"/>
           </div>
           <div className="flowersAbout_descriptions">
             <div className="flowersAbout_title">{product.name}</div>
@@ -52,8 +53,6 @@ const FloversAbout = (props) => {
             </div>
           </div>
         </div>
-      ))}
-    </>
   );
 };
 
