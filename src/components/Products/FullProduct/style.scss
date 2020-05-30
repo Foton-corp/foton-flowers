@@ -1,0 +1,80 @@
+.fullProductPage {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  flex-wrap: wrap-reverse;
+  margin: 10px auto;
+}
+
+.FullProductPage_products {
+  width: 900px;
+}
+
+.FullProductPage_products_items {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.FullProductCard {
+  width: 200px;
+  height: 350px;
+  margin: 0 2px 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_image img{
+    width: 100%;
+    height: 95%;
+  }
+
+  &_btn button {
+    padding: 5px 10px;
+    color: white;
+    background-color: tomato;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  &_removeBtn button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    color: red;
+    font-weight: bold;
+    border: 2px solid khaki;
+    background-color: darkorange;
+    outline: none;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+}
+
+.fullProductPage_filter {
+  border: 1px solid black;
+  flex: 1;
+  padding: 8px;
+}
+
+.filtrSale {
+display: flex;
+justify-content: space-around;
+padding: 5px 5px;
+
+
+& input{
+  width: 40%;
+  margin-left: 5px;
+  outline: none;
+  text-align: right;
+}
+
+}
+
+.filtrCategory {
+  margin: 30px 0;
+}

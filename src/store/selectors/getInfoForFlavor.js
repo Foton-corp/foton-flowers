@@ -1,2 +1,1 @@
-/* eslint-disable import/prefer-default-export */
-export const getInfoForFlavor = (state) => state.product.floverPage;
+export default (state) => state.product.floverPage;

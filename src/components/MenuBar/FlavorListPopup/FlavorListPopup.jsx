@@ -39,7 +39,6 @@ const useStyles = makeStyles(() => ({
 const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
   const classes = useStyles();
   const flavors = useSelector(getBascetProduct);
-
   return (
     <StyledMenu
       type="flavors"

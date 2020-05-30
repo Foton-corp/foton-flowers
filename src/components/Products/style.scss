@@ -15,9 +15,14 @@ li {
   }
 
   &_title {
+    width: 40%;
+    margin: auto;
     text-align: center;
     padding: 10px 0 25px 0;
     font-size: 20px;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
   }
 
   
@@ -70,3 +75,4 @@ li {
     font-size: 14px;
   }
 }
+ 

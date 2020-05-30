@@ -7,6 +7,7 @@ import Products from './components/Products';
 import MainBascet from './components/Bascet';
 import Footer from './components/Footer';
 import FloversAbout from './components/Products/AboutFlavors';
+import FullProductPage from './components/Products/FullProduct';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/pavilions" component={Pavilions} />
         <Route exact path="/flavors" component={MainBascet} />
         <Route path="/flavors/:id" component={FloversAbout} />
+        <Route path="/fullproductpage" component={FullProductPage} />
       </Switch>
       <Footer />
     </>
