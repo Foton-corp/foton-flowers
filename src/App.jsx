@@ -1,12 +1,16 @@
 import React from 'react';
 import './style.scss';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import MenuBarContainer from './components/MenuBar/MenuBarContainer/MenuBarContainer';
 import Pavilions from './components/Pavilions/Pavilions';
 import Products from './components/Products';
 import MainBascet from './components/Bascet';
 import Footer from './components/Footer';
 import FloversAbout from './components/Products/AboutFlavors';
+import {useSelector} from "react-redux";
+import {getLanguage} from "./store/selectors/getLanguage";
+
+export const LanguageContext = React.createContext('arm');
 
 function App() {
   return (
@@ -22,6 +26,16 @@ function App() {
       </Switch>
       <Footer />
     </>
+  );
+}
+
+export const AppContainer = () => {
+  const language = useSelector(getLanguage);
+
+  return (
+    <LanguageContext.Provider value={language}>
+      <App />
+    </LanguageContext.Provider>
   );
 }
 

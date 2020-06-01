@@ -2,9 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getInfoForFlavor} from '../../../store/selectors/getInfoForFlavor';
-import {goToFloversPage, addProduct, addProductActive} from '../../../store/action';
-
+import {addProduct, addProductActive} from '../../../store/action';
 import './style.scss';
 import {getInfoForFlavorById} from "../../../store/selectors/getInfoForFlavorById";
 

@@ -22,16 +22,16 @@ const useStyles = makeStyles({
 });
 
 const menuOptions = [
-  { title: 'Գլխավոր', link: '/', id: 1, },
-  { title: 'Մեր մասին', link: '/about-us', id: 2, },
-  { title: 'Կոնտակտներ', link: '/contact', id: 3, },
-  { title: 'Տաղավարներ', link: '/pavilions', id: 4, },
-  { title: 'Զանգահարեք մեզ` 093579264', link: '/', id: 5, },
+  { selector: 'menu:home', link: '/', id: 1 },
+  { selector: 'menu:about', link: '/about-us', id: 2 },
+  { selector: 'menu:contacts', link: '/contact', id: 3 },
+  { selector: 'menu:pavilions', link: '/pavilions', id: 4 },
+  { selector: 'menu:call', link: '/', id: 5 },
 ];
 
 const MenuBarContainer = () => {
   const minWidth1200 = useMediaQuery('(min-width:1200px)');
-  const minWidth900 = useMediaQuery('(min-width:900px)');
+  const minWidth900 = useMediaQuery('(min-width:1000px)');
   const classes = useStyles({ minWidth1200, minWidth900 });
   return <MenuBar menuOptions={menuOptions} classes={classes} isSmallDevice={!minWidth900} />;
 };

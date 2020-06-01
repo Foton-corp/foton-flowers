@@ -9,6 +9,7 @@ import {
 import HeaderCarousel from '../Header';
 
 import './style.scss';
+import RenderTranslated from '../common/RenderTranslated/RenderTranslated';
 
 const ProductItems = () => {
   const selector = useSelector(getProductItems);
@@ -28,7 +29,7 @@ const ProductItems = () => {
       <HeaderCarousel />
       <div className="products">
         <div className="products_title">
-          ԾԱՂԻԿՆԵՐ
+          <RenderTranslated selector="home:flowers" />
         </div>
         <div className="products_box" />
         <ul className="products_items">
@@ -57,7 +58,7 @@ const ProductItems = () => {
                       disabled={product.active}
                       onClick={() => handleAdd(product.id)}
                     >
-                      {product.active ? 'պահպանված է' : 'Պահպանել'}
+                      <RenderTranslated selector={product.active ? 'home:saved' : 'home:save'} />
                     </button>
                   </div>
                   <div className="productCard_removeBtn">
