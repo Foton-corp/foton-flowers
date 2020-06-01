@@ -15,9 +15,14 @@ li {
   }
 
   &_title {
+    width: 40%;
+    margin: auto;
     text-align: center;
     padding: 10px 0 25px 0;
     font-size: 20px;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
   }
 
   
@@ -43,30 +48,5 @@ li {
     cursor: pointer;
   }
 
-  &_btn button {
-    padding: 5px 10px;
-    color: white;
-    background-color: tomato;
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-
-  &_btn button:disabled {
-    background-color: cornflowerblue;
-    color: crimson;
-  }
-
-  &_removeBtn button {
-    padding: 5px 10px;
-    margin-top: 5px;
-    color: red;
-    font-weight: bold;
-    border: 2px solid khaki;
-    background-color: darkorange;
-    outline: none;
-    border-radius: 8px;
-    font-size: 14px;
-  }
 }
+ 

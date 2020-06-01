@@ -22,7 +22,7 @@ const getPointOptions = () => ({
   preset: 'islands#violetIcon',
 });
 
-function App() {
+function YandexMapUI() {
   return (
     <div className="App">
       <YMaps>
@@ -51,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default YandexMapUI;

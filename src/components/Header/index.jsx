@@ -1,34 +1,38 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-material-ui-carousel';
+import { Paper } from '@material-ui/core';
 
 import carouselImg1 from '../../assets/images/4.jpg';
 import carouselImg2 from '../../assets/images/5.jpg';
 
-const HeaderCarousel = () => (
-  <Carousel>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={carouselImg1}
-        alt="First slide"
-      />
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={carouselImg1}
-        alt="Third slide"
-      />
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={carouselImg2}
-        alt="Third slide"
-      />
-    </Carousel.Item>
-  </Carousel>
-);
+const HeaderCarousel = () => {
+  const items = [
+    {
+      img: carouselImg1,
+      id: 1,
+    },
+    {
+
+      img: carouselImg2,
+      id: 2,
+    },
+  ];
+
+  return (
+    <Carousel>
+      {
+                items.map((item) => <Item img={item.img} key={item.id} />)
+            }
+    </Carousel>
+  );
+};
+
+function Item(props) {
+  return (
+    <Paper style={{ border: 'none', boxShadow: 'none' }} key={props.id}>
+      <img src={props.img} alt="west" width="100%" height="100%" />
+    </Paper>
+  );
+}
 
 export default HeaderCarousel;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import GoogleMapUI from './GoogleMapUI/GoogleMapUI';
+import GoogleMapUI from './YandexMapUI/YandexMapUI';
 
 const Pavilions = () => (
   <>

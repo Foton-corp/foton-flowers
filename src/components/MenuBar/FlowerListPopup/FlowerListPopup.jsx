@@ -5,8 +5,8 @@ import { Close } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import StyledMenu from './StyledMenu/StyledMenu';
-import FlavorList from '../../Flavor/FlavorList/FlavorList';
-import { getBascetProduct } from '../../../store/selectors/getBascetProduct';
+import FlowerList from '../../Flavor/FlowerList/FlowerList';
+import { getBasketProduct } from '../../../store/selectors/getBasketProduct';
 
 const useStyles = makeStyles(() => ({
   flavors: {
@@ -36,10 +36,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
+const FlowerListPopup = ({ opened, handleProfileMenuChange }) => {
   const classes = useStyles();
-  const flavors = useSelector(getBascetProduct);
-
+  const flavors = useSelector(getBasketProduct);
   return (
     <StyledMenu
       type="flavors"
@@ -52,7 +51,7 @@ const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
       {flavors.length > 0
         ? (
           <div className={classes.flavorItems}>
-            <FlavorList flavors={flavors} />
+            <FlowerList flavors={flavors} />
             <Link to="/flavors" onClick={handleProfileMenuChange}>See all</Link>
           </div>
         )
@@ -75,4 +74,4 @@ const FlavorListPopup = ({ opened, handleProfileMenuChange }) => {
   );
 };
 
-export default FlavorListPopup;
+export default FlowerListPopup;

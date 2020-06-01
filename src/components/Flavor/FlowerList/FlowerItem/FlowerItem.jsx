@@ -5,6 +5,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { goToFloversPage } from '../../../../store/action';
 
 const useStyles = makeStyles({
   root: {
@@ -15,19 +18,32 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  LinkDecor: {
+    textDecoration: 'none',
+  },
 });
 
 
-const FlavorItem = ({ flavor }) => {
+const FlowerItem = ({ flavor }) => {
+  const dispatch = useDispatch();
+
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardActionArea className={classes.cardActionArea}>
-        <CardMedia
-          className={classes.media}
-          image={flavor.img}
-          title={flavor.name}
-        />
+
+        <Link
+          onClick={() => dispatch(goToFloversPage(flavor.id))}
+          to={`/flavors/${flavor.id}`}
+          className={classes.LinkDecor}
+        >
+          <CardMedia
+            className={classes.media}
+            image={flavor.img}
+            title={flavor.name}
+          />
+        </Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {flavor.name}
@@ -39,8 +55,9 @@ const FlavorItem = ({ flavor }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+
     </Card>
   );
 };
 
-export default FlavorItem;
+export default FlowerItem;

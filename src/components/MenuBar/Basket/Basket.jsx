@@ -5,8 +5,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import { useSelector } from 'react-redux';
-import FlavorListPopup from '../FlavorListPopup/FlavorListPopup';
-import { getBascetProduct } from '../../../store/selectors/getBascetProduct';
+import FlowerListPopup from '../FlowerListPopup/FlowerListPopup';
+import { getBasketProduct } from '../../../store/selectors/getBasketProduct';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -18,15 +18,16 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 const Basket = ({ opened, handleProfileMenuChange }) => {
-  const selector = useSelector(getBascetProduct);
+  const selector = useSelector(getBasketProduct);
+  const productQuantity = selector.length;
   return (
     <MenuItem onClick={handleProfileMenuChange} style={{ left: '0' }}>
       <IconButton aria-label="cart">
-        <StyledBadge color="secondary" badgeContent={selector.length}>
+        <StyledBadge color="secondary" badgeContent={productQuantity}>
           <ShoppingCartIcon />
         </StyledBadge>
       </IconButton>
-      <FlavorListPopup opened={opened} handleProfileMenuChange={handleProfileMenuChange} />
+      <FlowerListPopup opened={opened} handleProfileMenuChange={handleProfileMenuChange} />
     </MenuItem>
   );
 };

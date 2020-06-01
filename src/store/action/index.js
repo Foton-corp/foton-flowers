@@ -2,9 +2,10 @@ import {
   PRODUCT_ACTIVE,
   ADD_PRODUCT,
   REMOVE_PRODUCT,
-  FLOVERS_PAGE,
-  INCREASE_COUNT_BOUQUET,
-  DECREASE_BOUQET_ACCOUNT,
+  FLOWERS_PAGE,
+  CHANGE_BOUQUET_ACCOUNT,
+  // filter
+  CHANGE_FILTER,
 } from '../actionType';
 
 export const addProductActive = (id) => ({
@@ -24,16 +25,18 @@ export const removeProduct = (id) => ({
 });
 
 export const goToFloversPage = (id) => ({
-  type: FLOVERS_PAGE,
+  type: FLOWERS_PAGE,
   payload: { id: +id },
 });
 
-export const increaseCountBouqet = (id, quantity) => ({
-  type: INCREASE_COUNT_BOUQUET,
-  payload: { id: +id, quantity: +quantity },
+export const changeCountBouqet = (id, quantity, sign) => ({
+  type: CHANGE_BOUQUET_ACCOUNT,
+  payload: { id: +id, quantity: +quantity, sign },
 });
 
-export const decreaseBouqetAccount = (id, quantity) => ({
-  type: DECREASE_BOUQET_ACCOUNT,
-  payload: { id: +id, quantity: +quantity },
+// filter
+
+export const changeFilterProduct = (minSale, maxSale, category) => ({
+  type: CHANGE_FILTER,
+  payload: { minSale: +minSale, maxSale: +maxSale, category },
 });
