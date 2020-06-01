@@ -3,12 +3,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+
 import getHomeProducts from '../../store/selectors/getHomeProducts';
 import {
   addProduct, goToFloversPage, removeProduct,
@@ -121,28 +123,39 @@ const ProductItems = (props) => {
                     $
                   </div>
                   <div className="productCard_btn">
-                    <button
-                      type="button"
+                    <Button
+                      variant="contained"
+                      color="primary"
                       disabled={product.active}
                       onClick={() => handleAdd(product.id)}
                     >
                       {product.active ? 'պահպանված է' : 'Պահպանել'}
-                    </button>
+                    </Button>
                   </div>
                   <div className="productCard_removeBtn">
-                    <button
-                      type="button"
+                    <Button
+                      variant="contained"
+                      color="secondary"
                       style={{ display: product.active ? 'block' : 'none' }}
                       onClick={() => handleDelete(product.id)}
                     >
                       չեղարկել
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </li>
             ))
           }
         </ul>
+        <div className="products_title">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleFullProduct}
+          >
+            ««Մեծ ընտրանի ձեր և ձեր սիրելիների համար»»
+          </Button>
+        </div>
       </div>
     </div>
   );

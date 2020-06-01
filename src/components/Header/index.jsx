@@ -29,7 +29,7 @@ const HeaderCarousel = () => {
 
 function Item(props) {
   return (
-    <Paper style={{ border: 'none', boxShadow: 'none' }} key={props.id} >
+    <Paper style={{ border: 'none', boxShadow: 'none' }} key={props.id}>
       <img src={props.img} alt="west" width="100%" height="100%" />
     </Paper>
   );

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import Button from '@material-ui/core/Button';
+import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
 import ToOrderModal from './ToOrderModal';
 import { getBascetProduct } from '../../store/selectors/getBascetProduct';
 import { changeCountBouqet, removeProduct } from '../../store/action';
@@ -77,12 +78,14 @@ const MainBascet = () => {
                   />
                 </div>
                 <div className="productCard_removeBtn">
-                  <button
-                    type="button"
+                  <Button
+                    variant="contained"
+                    color="secondary"
                     onClick={() => handleDelet(prod.id)}
                   >
+                    <DeleteForeverTwoToneIcon />
                     ջնջել
-                  </button>
+                  </Button>
                 </div>
               </div>
             </li>

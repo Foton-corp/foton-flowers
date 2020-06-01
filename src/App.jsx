@@ -15,12 +15,12 @@ function App() {
       <MenuBarContainer />
       <Switch>
         <Route exact path="/" component={Products} />
+        <Route path="/fullproductpage" component={FullProductPage} />
         <Route path="/about-us" component={null} />
         <Route path="/contact" component={null} />
         <Route path="/pavilions" component={Pavilions} />
         <Route exact path="/flavors" component={MainBascet} />
         <Route path="/flavors/:id" component={FloversAbout} />
-        <Route path="/fullproductpage" component={FullProductPage} />
       </Switch>
       <Footer />
     </>
