@@ -1,19 +1,24 @@
-import React from 'react';
-import './style.scss';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import MenuBarContainer from './components/MenuBar/MenuBarContainer/MenuBarContainer';
 import Pavilions from './components/Pavilions/Pavilions';
-import Products from './components/Products';
 import MainBasket from './components/Bascet';
 import Footer from './components/Footer';
 import FlowersAbout from './components/Products/AboutFlowers';
-import { getLanguage } from './store/selectors/getLanguage';
 import FullProductPage from './components/Products/FullProduct';
+import Products from './components/Products/index';
+import { initialize } from './store/action';
 
 export const LanguageContext = React.createContext('arm');
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initialize());
+  }, [dispatch]);
+
   return (
     <>
       <MenuBarContainer />
@@ -30,15 +35,4 @@ function App() {
     </>
   );
 }
-
-export const AppContainer = () => {
-  const language = useSelector(getLanguage);
-
-  return (
-    <LanguageContext.Provider value={language}>
-      <App />
-    </LanguageContext.Provider>
-  );
-};
-
 export default App;

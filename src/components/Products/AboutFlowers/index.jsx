@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, addProductActive } from '../../../store/action';
+import {addProductActive, addProductToBasket} from '../../../store/action';
 import './style.scss';
 import getInfoForFlavorById from '../../../store/selectors/getInfoForFlavorById';
 
@@ -12,7 +12,7 @@ const FlowersAbout = (props) => {
   const product = useSelector(getInfoForFlavorById(id));
   // eslint-disable-next-line consistent-return
   const handleBuy = (id) => {
-    dispatch(addProduct(id));
+    dispatch(addProductToBasket(id));
     dispatch(addProductActive(id));
   };
 

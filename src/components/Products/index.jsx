@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 
 import getHomeProducts from '../../store/selectors/getHomeProducts';
 import {
-  addProduct, goToFloversPage, removeProduct,
+  addProductToBasket, goToFloversPage, removeProductFromBasket,
 } from '../../store/action';
 import HeaderCarousel from '../Header';
 import './style.scss';
@@ -61,10 +61,10 @@ const ProductItems = (props) => {
   const dispatch = useDispatch();
 
   const handleAdd = (id) => {
-    dispatch(addProduct(id));
+    dispatch(addProductToBasket(id));
   };
   const handleDelete = (id) => {
-    dispatch(removeProduct(id));
+    dispatch(removeProductFromBasket(id));
   };
 
   const handlePathBasket = () => {

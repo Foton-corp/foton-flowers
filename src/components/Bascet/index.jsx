@@ -1,13 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import Button from '@material-ui/core/Button';
 import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
-import ToOrderModal from './ToOrderModal';
 import { getBasketProduct } from '../../store/selectors/getBasketProduct';
-import { changeCountBouqet, removeProduct } from '../../store/action';
+import {changeCountBouqet, removeProductFromBasket} from '../../store/action';
 import './style.scss';
+import DialogContainer from './DialogContainer/DialogContainer';
 
 
 const MainBasket = () => {
@@ -17,13 +17,11 @@ const MainBasket = () => {
   const totalAmount = baseProduct.reduce((num, item) => num + +item.sale * item.quantity, 0);
   const dispatch = useDispatch();
 
-
-  const handleToggleModal = useCallback(() => {
-    setShowModal(!showModal);
-  }, [showModal]);
+  const handleOpen = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   const handleDelet = (id) => {
-    dispatch(removeProduct(id));
+    dispatch(removeProductFromBasket(id));
   };
 
   const handlePlus = (id, quantity) => {
@@ -107,47 +105,14 @@ const MainBasket = () => {
             <Button
               variant="contained"
               color="secondary"
-              onClick={handleToggleModal}
+              onClick={handleOpen}
             >
               Պատվիրել
             </Button>
           </div>
         </div>
       </div>
-      <ToOrderModal
-        show={showModal}
-        onClose={handleToggleModal}
-        title="Receipt"
-        onSubmit={() => {}}
-      >
-        <div className="modal_container">
-          {baseProduct.map((items) => (
-            <div className="modal_body" key={items.id}>
-              <div>
-                անվանում:
-                {items.name}
-              </div>
-              <div>
-                առժեք:
-                {items.sale}
-              </div>
-              <div>
-                քանակ:
-                {items.quantity}
-              </div>
-              <div>
-                Ընդանուր:
-                {items.sale * items.quantity}
-              </div>
-            </div>
-          ))}
-          <div className="modal_total_amount">
-            Total amount:
-            {totalAmount}
-            $
-          </div>
-        </div>
-      </ToOrderModal>
+      <DialogContainer open={showModal} handleClose={handleClose} />
     </>
   );
 };

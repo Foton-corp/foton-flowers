@@ -14,7 +14,7 @@ import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core';
 
 import {
-  goToFloversPage, addProduct, addProductActive, removeProduct,
+  goToFloversPage, addProductActive, addProductToBasket, removeProductFromBasket,
 } from '../../../store/action';
 import getFilterProducts from '../../../store/selectors/getFilterProducts';
 import getCategoryName from '../../../store/selectors/getCategoryName';
@@ -33,12 +33,12 @@ const FullProductPage = (props) => {
   const dispatch = useDispatch();
 
   const handleAdd = (id) => {
-    dispatch(addProduct(id));
+    dispatch(addProductToBasket(id));
     dispatch(addProductActive(id));
   };
 
   const handleDelete = (id) => {
-    dispatch(removeProduct(id));
+    dispatch(removeProductFromBasket(id));
   };
 
   const handleChange = (event) => {

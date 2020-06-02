@@ -6,3 +6,4 @@ export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const CHANGE_BOUQUET_ACCOUNT = 'CHANGE_BOUQET_ACCOUNT';
 // filter
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const INITIALIZE = 'INITIALIZE';

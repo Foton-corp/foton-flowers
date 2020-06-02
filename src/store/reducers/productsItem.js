@@ -2,7 +2,7 @@ import {
   ADD_PRODUCT,
   REMOVE_PRODUCT,
   CHANGE_BOUQUET_ACCOUNT,
-  CHANGE_FILTER,
+  CHANGE_FILTER, INITIALIZE,
 } from '../actionType';
 
 import mockProducts from '../../mocks/products';
@@ -15,6 +15,20 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case INITIALIZE: {
+      const newState = { ...state };
+      const basketItems = [];
+      for (const key in newState.allItems) {
+        const category = newState.allItems[key];
+        category.map((val) => {
+          if (action.payload.ids.includes(val.id)) {
+            basketItems.push(val);
+          }
+          return null;
+        });
+      }
+      return { ...state, bascet: basketItems };
+    }
     case ADD_PRODUCT: {
       const searchProduct = Object.values(state.allItems)
         .reduce((accumData, products) => [
